@@ -1,0 +1,125 @@
+.music-list {
+  color: #555;
+  position: absolute;
+  transform: translateY(150px);
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  padding: 15px;
+  z-index: 99;
+  padding: 0 15px;
+  transition: 0.1s;
+  visibility: hidden;
+  opacity: 0;
+}
+.music-list.active {
+  top: 20px;
+  visibility: visible;
+  transform: translateY(50px);
+  opacity: 1;
+  overflow-y: scroll;
+  height: 430px;
+}
+.music-list.active::-webkit-scrollbar {
+  width: 5px;
+  background-color: transparent;
+  margin-right: 15px;
+  transform: translateX(-10px);
+}
+.music-list.active::-webkit-scrollbar-track {
+  width: 2px;
+  background-color: #555;
+}
+.music-list.active::-webkit-scrollbar-thumb {
+  width: 4px;
+  background-color: #f4f2f2;
+}
+.music-list__item {
+  display: flex;
+  color: #fff;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 5px;
+  background-color: transparent;
+  padding: 15px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.music-list__item:hover {
+  background-color: #f4f2f21f;
+}
+.music-list__item .music__author {
+  display: flex;
+  align-items: center;
+}
+.music-list__item .music__author img {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+.animation-chart {
+  display: flex;
+  gap: 2px;
+  align-items: end;
+  height: 20px;
+}
+.animation-chart .line {
+  width: 5px;
+  height: 20px;
+  background-color: #f4f4f4;
+}
+.animation-chart .line.line-one {
+  height: 10px;
+}
+.animation-chart .line.line-three {
+  height: 15px;
+}
+.animation-chart .line.line-two {
+  height: 19px;
+}
+.music-list__item.active .animation-chart .line.line-one {
+  height: 10px;
+  animation: animation-line 2s infinite linear;
+}
+.music-list__item.active .animation-chart .line.line-three {
+  height: 15px;
+  animation: animation-line 4s infinite alternate;
+}
+.music-list__item.active .animation-chart .line.line-two {
+  animation: animation-line 2.5s infinite linear;
+  height: 19px;
+}
+.author {
+  color: #bbb;
+}
+.music-list__item .author.active {
+  color: #fff;
+}
+.music-list__item.active .author {
+  color: #fff;
+}
+/* Animation Line */
+
+@keyframes animation-line {
+  0% {
+    height: 100%;
+  }
+  33.3% {
+    height: 30%;
+  }
+  66.6% {
+    height: 60%;
+  }
+  99.9% {
+    height: 80%;
+  }
+}
+
+/* Media Style Start 465px */
+
+@media (max-width: 465px) {
+  .music-list.active {
+    height: 300px;
+  }
+}
